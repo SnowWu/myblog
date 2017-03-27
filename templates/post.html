@@ -1,6 +1,6 @@
 <--! post.html-->
 {% extends "base.html" %}
-{% load custom_markdown %}  #添加markdown
+{% load custom_markdown %}
 
 {% block content %}
 <div class="posts">
@@ -15,7 +15,7 @@
 
                 <div class="post-description">
                     <p>
-                        {{ post.content|custom_markdown }}  #markdown
+                        {{ post.content|custom_markdown }}
                     </p>
                 </div>
         </section>

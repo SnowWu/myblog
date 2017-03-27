@@ -6,7 +6,7 @@ class Article(models.Model):
 	category = models.CharField(max_length = 50, blank = True) #博客标签
 	date_time = models.DateTimeField(auto_now_add = True) #博客日期
 	content = models.TextField(blank = True, null = True) #博客文章内容
-
+	
 	#python2使用__unicode__,python3使用__str__
 	def __str__(self):
 		return self.title

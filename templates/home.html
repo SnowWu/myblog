@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load custom_markdown %} # 新添加的代码
+{% load custom_markdown %}
 
 {% block content %}
 <div class="posts">
@@ -15,7 +15,7 @@
 
                 <div class="post-description">
                     <p>
-                        {{ post.content|custom_markdown }}
+                        {{ post.content|custom_markdown|truncatewords:200 }}
                     </p>
                 </div>
                 <a class="pure-button" href="{% url "detail" id=post.id %}">阅读 >>> </a>

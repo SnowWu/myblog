@@ -15,10 +15,13 @@
 
                 <div class="post-description">
                     <p>
-                        {{ post.content|custom_markdown|truncatewords:20 }}
+                        {{ post.content|custom_markdown|truncatewords:3 }}
                     </p>
                 </div>
-                <a class="pure-button" href="{% url "detail" id=post.id %}">阅读 >>> </a>
+                <a class="pure-button" href="{% url "detail" id=post.id %}" style="color: skyblue">more >>> </a>
+                <br><br>
+                <hr style="height:1px;border:none;border-top:1px solid #555555;" width="30%" align="left"  />
+                <!--<hr style="FILTER: alpha(opacity=100,finishopacity=0,style=1)" align="left" width="30%" color=#987cb9 SIZE=3>-->
         </section>
     {% endfor %}
 </div><!-- /.blog-post -->

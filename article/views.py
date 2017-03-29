@@ -24,7 +24,6 @@ def home(request):
 def detail(request, id):
 	try:
 		post = Article.objects.get(id = str(id))
-		post.content = custom_markdown(post.content)
 	except Article.DoesNotExist:
 		raise django.http.Http404
 	return render(request, 'post.html', {'post' : post})

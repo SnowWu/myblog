@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article',
-    #'django.contrib.markdown',
     #'markdown',
 ]
 from django.conf import global_settings
@@ -125,3 +124,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static')
+# 设置图片等静态文件的路径
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

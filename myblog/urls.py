@@ -14,9 +14,12 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+#from django.contrib import staticfiles
 from django.conf.urls import url
 from django.contrib import admin
 from article import views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls), #可以使用设置好的url进入网站后台
@@ -25,3 +28,4 @@ urlpatterns = [
     #url(r'^test/$', views.test)
     url(r'^(?P<id>\d+)/$', views.detail, name = 'detail'),
 ]
+#urlpatterns += staticfiles_urlpatterns()

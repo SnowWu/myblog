@@ -20,14 +20,14 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def home(request):
 	post_list = Article.objects.all()
-	paginator = Paginator(post_list, 5)
+	'''paginator = Paginator(post_list, 5)
 	page = request.GET.get('page')
 	try :
 		post_list = paginator.page(page)
 	except PageNotAnInteger :
 		post_list = paginator.page(1)
 	except EmptyPage :
-		post_list = paginator.paginator(paginator.num_pages)
+		post_list = paginator.paginator(paginator.num_pages)'''
 	return render(request, 'home.html', {'post_list' : post_list})  #'current_time':utcnow
 
 def detail(request, id):

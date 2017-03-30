@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from article.models import Article
 from datetime import datetime
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 #from django.utils.timezone import utc
 #utcnow = datetime.utcnow().replace(tzinfo=utc)
 # Create your views here.
@@ -19,6 +20,14 @@ from datetime import datetime
 
 def home(request):
 	post_list = Article.objects.all()
+	paginator = Paginator(post_list, 5)
+	page = request.GET.get('page')
+	try :
+		post_list = paginator.page(page)
+	except PageNotAnInteger :
+		post_list = paginator.page(1)
+	except EmptyPage :
+		post_list = paginator.paginator(paginator.num_pages)
 	return render(request, 'home.html', {'post_list' : post_list})  #'current_time':utcnow
 
 def detail(request, id):

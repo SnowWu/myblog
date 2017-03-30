@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% load custom_markdown %}
+{% load paginate_tags %} 
+
 
 {% block content %}
 <div class="posts">
+    {% paginate post_list 3 %}
     {% for post in post_list %}
         <section class="post">
             <header class="post-header">
@@ -25,7 +28,7 @@
         </section>
     {% endfor %}
 
-        {% if post_list.object_list and post_list.paginator.num_pages > 1 %}
+        <!--{% if post_list.object_list and post_list.paginator.num_pages > 1 %}
       <div>
       <ul class="pager">
       {% if post_list.has_previous %}
@@ -37,6 +40,8 @@
       {% endif %}
       </ul>
       </div>
-    {% endif %}
+    {% endif %}-->
+    <div style="text-align:center">
+    {% include "pagination.html" %}</div>
 </div><!-- /.blog-post -->
 {% endblock %}
